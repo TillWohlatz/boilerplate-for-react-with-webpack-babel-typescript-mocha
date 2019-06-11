@@ -1,0 +1,18 @@
+.navbar {
+    height: 60px;
+    .title {
+        font-size: 1.5em;
+    } // &.navbar-light {
+    //     background: rgba(255, 255, 255, 0.96);
+    // }
+    .navbar-brand {
+        padding: 0;
+        img {
+            height: 40px;
+        }
+    }
+    .profile-picture {
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 20px;
+    }
+}
