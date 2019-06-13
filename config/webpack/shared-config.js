@@ -17,7 +17,7 @@ module.exports = {
     },
     plugins: [
         new CheckerPlugin(),
-        new HtmlWebpackPlugin({ template: resolve(process.cwd(), 'public', 'index.html') }),
+        new HtmlWebpackPlugin({ template: resolve(process.cwd(), 'public', 'index.html.ejs') }),
         new FixDefaultImportPlugin(),
         new CopyWebpackPlugin(),
     ],
