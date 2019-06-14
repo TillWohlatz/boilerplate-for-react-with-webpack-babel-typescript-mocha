@@ -1,37 +1,33 @@
-import React, { Component } from "react";
+import React, { FunctionComponent } from "react";
 import { Route, Switch } from "react-router-dom";
-// import * as icon from "../../../public/favicon.ico";
-
-// import $ from "jquery";
-// import "./App.scss";
-import Header from "../Header/Header";
 import { Hello } from "../Hello";
+import { ReducerHello } from "../ReducerHello";
+import { App } from "../AppContext/App";
 
-class Router extends Component<any, any> {
-
-    public render() {
+export const Router: FunctionComponent<{}> = () => {
 
 
-
-        return (
+    return (
+        <>
             <React.Fragment>
-                <Header
-                    firstname={"Test Name"}
-                    profileImage={"https://via.placeholder.com/40x40"}
-                />
+                <Switch>
+                    <Route path="/reducer">
+                        <ReducerHello />
+                    </Route>
+                    <Route path="/buddy">
+                        <Hello initial={2} />
+                    </Route>
+                    <Route path="/app">
+                        <App />
+                    </Route>
 
-                <main role="main" id="main-section">
-                    <Switch>
+                    <Route path="/">
+                        <Hello />
+                    </Route>
 
-                        <Route path="/">
-                            <Hello bundler="Test" compiler="Fu" framework="Bar" />
-                        </Route>
-                    </Switch>
-                </main>
-                {/* <Footer /> */}
+                </Switch>
             </React.Fragment>
-        );
-    }
+        </>
+    );
 }
 
-export default Router;

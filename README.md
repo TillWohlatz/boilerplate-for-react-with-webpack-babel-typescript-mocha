@@ -1,63 +1,21 @@
-# boilerplate-for-react-with-webpack-babel-typescript-mocha
+# React FunctionComponent
 
-## Inspired by
-``https://github.com/vikpe/react-webpack-typescript-starter``
-``https://github.com/rokoroku/react-redux-typescript-boilerplate``
-``https://github.com/strothj/webpack-babel-typescript-react-boilerplate``
+``When NOT to use Functional Components
 
---save-dev
-@babel/cli @babel/core @babel/preset-env @babel/preset-react babel-loader 
+If functional components are a hammer, it’s important to remember that not every problem is a nail. Class components are included in React for a reason.
 
-@types/classnames 
-@types/history 
-@types/node 
+The general heuristic I use is to always start with a functional component. If you find out you need lifecycle methods or it makes sense to have a small piece component level state, it’s trivial to refactor to a class component. I find this style of writing components keeps me from getting lazy and forces me to use functional components to their full potential.
 
-@types/react @types/react-dom @types/react-redux @types/react-router @types/redux-actions @types/webpack @types/webpack-env 
+This post, “7 Reasons to Outlaw React’s Functional Components” also offers some additional potential downsides to consider. That said, I personally don’t find any of the arguments against functional components very compelling.
 
+From the release notes:
 
-node-sass
-gh-pages  
-postcss 
-postcss-browser-reporter 
-postcss-import  
-postcss-preset-env 
-postcss-reporter 
-postcss-url 
-prettier  
+“In idiomatic React code, most of the components you write will be stateless, simply composing other components.”
 
-redux-devtools-extension typescript 
+Companies on the cutting edge of React development like Facebook, Netflix, and Airbnb all readily use functional components.  It seems pretty clear the upsides outweigh the negatives.
 
-webpack 
-webpack-cli 
-webpack-dev-server
-webpack-dev-middleware
-webpack-merge
+When should you NOT use functional components? When you have no other option.``
+from https://programmingwithmosh.com/react/react-functional-components/
 
 
-clean-webpack-plugin
-
-
-html-webpack-plugin 
-awesome-typescript-loader
-
-<!-- html-loader  -->
-react-hot-loader
-file-loader
-image-webpack-loader
-css-loader
-style-loader
-sass-loader
-source-map-loader
-mini-css-extract-plugin
-<!-- ts-loader  -->
-url-loader
-postcss-loader
-
---save-prod
-classnames 
-react 
-react-dom 
-react-redux 
-react-router 
-redux 
-redux-actions
+Example code here :  https://fettblog.eu/typescript-react/hooks/#usestate

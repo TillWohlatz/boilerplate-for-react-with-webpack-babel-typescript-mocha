@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
-import Router from "./components/Router/Router";
+import { Router } from "./components/Router/Router";
 //import "./index.css";
 
 if (module.hot) {

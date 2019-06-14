@@ -9,9 +9,9 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
-    context: resolve(__dirname, '../../src'),
+    context: resolve(process.cwd(), 'src'),
     output: {
-        path: resolve(__dirname, 'build'),
+        path: resolve(process.cwd(), 'build'),
         filename: 'js/index.bundle.js',
 
     },

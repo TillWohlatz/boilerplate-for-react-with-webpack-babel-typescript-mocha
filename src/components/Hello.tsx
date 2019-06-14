@@ -1,17 +1,18 @@
-import * as React from "react";
+import React, { FunctionComponent, useState } from 'react';
 
-interface IProps {
-   compiler: string;
-   framework: string;
-   bundler: string;
-}
+export const Hello: FunctionComponent<{ initial?: number }> = ({ initial }) => {
 
-export class Hello extends React.Component<IProps, {}> {
-   public render() {
-      return (
-         <h1>This is a
-         {this.props.framework} application using
-         {this.props.compiler} with {this.props.bundler}</h1>
-      );
-   }
+   //
+   initial = initial ? initial : 0;
+   const [clicks, setClicks] = useState(initial);
+   return (
+      <>
+         <div>
+            <p>You clicked {clicks} times</p>
+            <button onClick={() => setClicks(clicks + 1)}>
+               Click me
+            </button>
+         </div>
+      </>
+   );
 }
