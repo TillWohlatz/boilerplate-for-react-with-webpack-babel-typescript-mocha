@@ -10,9 +10,6 @@ import { Hello } from "../Hello";
 class Router extends Component<any, any> {
 
     public render() {
-
-
-
         return (
             <React.Fragment>
                 <Header

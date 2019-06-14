@@ -9,9 +9,13 @@ interface IProps {
 export class Hello extends React.Component<IProps, {}> {
    public render() {
       return (
-         <h1>This is a
-         {this.props.framework} application using
-         {this.props.compiler} with {this.props.bundler}</h1>
+         <div id="main">
+            <h1>This is a&nbsp;
+               {this.props.framework}&nbsp;application using&nbsp;
+               {this.props.compiler}&nbsp;
+               with&nbsp;{this.props.bundler}
+            </h1>
+         </div>
       );
    }
 }

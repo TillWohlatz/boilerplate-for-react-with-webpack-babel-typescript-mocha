@@ -9,11 +9,11 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
-    context: resolve(__dirname, '../../src'),
+    context: resolve(process.cwd(), 'src')
     output: {
-        path: resolve(__dirname, 'build'),
         filename: 'js/index.bundle.js',
-
+        path: resolve(process.cwd(), 'build'),
+        publicPath: "/assets/",
     },
     plugins: [
         new CheckerPlugin(),
@@ -57,13 +57,40 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: [
-                    'file-loader?hash=sha512&digest=hex&name=img/[hash].[ext]',
-                    'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false',
-                ],
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                /* Exclude fonts while working with images, e.g. .svg can be both image or font. */
+                exclude: resolve(process.cwd(), '/public/fonts'),
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+
+                        name(file) {
+                            if (process.env.NODE_ENV === 'development') {
+                                return 'img/[name].[ext]';
+                            }
+
+                            return 'img/[hash].[ext]';
+                        },
+                    }
+                },
+                {
+                    loader: 'image-webpack-loader',
+                    options: {
+                        bypassOnDebug: true, // webpack@1.x
+                        disable: true, // webpack@2.x and newer
+                        optipng: {
+                            enabled: true,
+                            optimizationLevel: 7,
+                        },
+                        gifsicle: {
+                            interlaced: false,
+                        }
+                    },
+                },
+                ]
+
+
             },
         ],
     },
-
 };
