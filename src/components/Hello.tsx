@@ -1,4 +1,8 @@
-import * as React from "react";
+import React from "react";
+// import { ApolloProvider } from "react-apollo";
+import { ApolloClient } from "apollo-client";
+import { HttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
 interface IProps {
    compiler: string;
@@ -6,7 +10,17 @@ interface IProps {
    bundler: string;
 }
 
+const client: ApolloClient<any> = new ApolloClient({
+   link: new HttpLink({
+      uri: "https://fakerql.com/graphql",
+      // Remember, we only need ONE endpoint!
+   }),
+   cache: new InMemoryCache(),
+});
+
 export class Hello extends React.Component<IProps, {}> {
+   console.dir(client);
+
    public render() {
       return (
          <div id="main">
@@ -19,3 +33,7 @@ export class Hello extends React.Component<IProps, {}> {
       );
    }
 }
+
+
+
+
