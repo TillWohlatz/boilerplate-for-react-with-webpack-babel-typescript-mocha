@@ -6,7 +6,7 @@ type ActionType = {
 const initialState = { count: 0 };
 
 // We only need to set the type here ...
-function reducer(state: { count: number }, action: ActionType) {
+export function reducer(state: { count: number }, action: ActionType) {
    switch (action.type) {
       // ... to make sure that we don't have any other strings here ...
       case 'reset':
@@ -25,7 +25,7 @@ export const ReducerHello: FunctionComponent<{}> = () => {
    return (
       <>
          Count: {state.count}
-     
+
          <button onClick={() => dispatch({ type: 'reset' })}>
             Reset
        </button>
