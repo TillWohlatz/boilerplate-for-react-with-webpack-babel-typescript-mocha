@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { Hello } from "../Hello";
 import { ReducerHello } from "../ReducerHello";
 import { App } from "../AppContext/App";
+import { ClassContext } from "../AppClassCompContext/ClassContext";
 
 export const Router: FunctionComponent<{}> = () => {
 
@@ -19,6 +20,9 @@ export const Router: FunctionComponent<{}> = () => {
                     </Route>
                     <Route path="/app">
                         <App />
+                    </Route>
+                    <Route path="/app2">
+                        <ClassContext />
                     </Route>
 
                     <Route path="/">
