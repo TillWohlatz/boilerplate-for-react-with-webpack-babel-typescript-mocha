@@ -16,7 +16,6 @@ export class ClassContext extends React.Component<{}, ClassState>{
     constructor(props: any) {
         super(props);
         console.log("inital state set");
-        //const [count, setCount] = useState(initalState);
         this.setCount = this.setCount.bind(this)
         this.state = { count: 0, setCount: this.setCount };
     }
